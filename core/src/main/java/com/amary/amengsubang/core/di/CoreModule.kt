@@ -5,7 +5,6 @@ import com.amary.amengsubang.core.data.PlaceRepository
 import com.amary.amengsubang.core.data.datasource.local.LocalDataSource
 import com.amary.amengsubang.core.data.datasource.local.room.PlaceDatabase
 import com.amary.amengsubang.core.data.datasource.remote.RemoteDataSource
-import com.amary.amengsubang.core.utils.AppExecutors
 import com.amary.amengsubang.domain.repository.IPlaceRepository
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -33,6 +32,5 @@ val networkModule = module {
 val repositoryModule = module {
     single { LocalDataSource(get()) }
     single { RemoteDataSource() }
-    factory { AppExecutors() }
-    single<IPlaceRepository> { PlaceRepository(get(), get(), get()) }
+    single<IPlaceRepository> { PlaceRepository(get(), get()) }
 }

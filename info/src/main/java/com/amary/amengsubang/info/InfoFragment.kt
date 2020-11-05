@@ -9,10 +9,6 @@ import android.view.ViewGroup
 
 class InfoFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = InfoFragment()
-    }
-
     private lateinit var viewModel: InfoViewModel
 
     override fun onCreateView(

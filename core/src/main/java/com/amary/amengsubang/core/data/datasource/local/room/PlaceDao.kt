@@ -1,10 +1,12 @@
 package com.amary.amengsubang.core.data.datasource.local.room
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.amary.amengsubang.core.data.datasource.local.entity.FavoriteEntity
 import com.amary.amengsubang.core.data.datasource.local.entity.PlaceEntity
 import com.amary.amengsubang.core.data.datasource.local.entity.PlaceWithFavoriteEntity
-import io.reactivex.Completable
 import kotlinx.coroutines.flow.Flow
 
 @Dao

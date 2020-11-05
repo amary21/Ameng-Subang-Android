@@ -5,5 +5,5 @@
         android:orderInCategory="100"
         android:icon="@drawable/ic_favorite_true"
         app:showAsAction="ifRoom"
-        android:title="FavoriteFalse" />
+        android:title="@string/favoriteFalse" />
 </menu>

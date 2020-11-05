@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
+    <color name="purple_700" tools:ignore="UnusedResources" tools:keep="@color/purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="primaryColor">#32e0c4</color>
-    <color name="primaryLightColor">#76fff7</color>
+    <color name="primaryColor" tools:keep="@color/primaryColor">#32e0c4</color>
+    <color name="primaryLightColor" tools:keep="@color/primaryLightColor">#76fff7</color>
     <color name="primaryDarkColor">#00ad94</color>
-    <color name="secondaryColor">#0d7377</color>
-    <color name="secondaryLightColor">#4ca2a6</color>
-    <color name="secondaryDarkColor">#00474b</color>
-    <color name="primaryTextColor">#ffffff</color>
-    <color name="secondaryTextColor">#ffffff</color>
+    <color name="secondaryColor" tools:keep="@color/secondaryColor">#0d7377</color>
+    <color name="secondaryLightColor" tools:keep="@color/secondaryLightColor">#4ca2a6</color>
+    <color name="secondaryDarkColor" tools:ignore="UnusedResources">#00474b</color>
+    <color name="primaryTextColor" tools:keep="@color/primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor" tools:keep="@color/secondaryTextColor">#ffffff</color>
     <color name="bottomShapeColor">#4D00AD94</color>
     <color name="dark">#141414</color>
-    <color name="gold">#FFD700</color>
-    <color name="lightGrey">#d3d3d3</color>
+    <color name="gold" tools:ignore="UnusedResources">#FFD700</color>
+    <color name="lightGrey" tools:keep="@color/lightGrey">#d3d3d3</color>
 </resources>

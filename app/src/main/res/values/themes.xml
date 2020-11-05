@@ -14,14 +14,14 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.AmengSubang.NoActionBar">
+    <style name="Theme.AmengSubang.NoActionBar" tools:ignore="UnusedResources">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.AmengSubang.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.AmengSubang.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" tools:ignore="UnusedResources" />
 
-    <style name="Theme.AmengSubang.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+    <style name="Theme.AmengSubang.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" tools:ignore="UnusedResources">
         <item name="android:background">@color/white</item>
     </style>
 
@@ -42,31 +42,31 @@
         <item name="android:background">@color/white</item>
     </style>
 
-    <style name="AppTheme.Transparent" parent="AppTheme.AppBarOverlay">
+    <style name="AppTheme.Transparent" parent="AppTheme.AppBarOverlay" tools:ignore="UnusedResources">
         <item name="android:background">@android:color/transparent</item>
     </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" tools:ignore="UnusedResources" />
 
-    <style name="CustomActionBar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    <style name="CustomActionBar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar" tools:ignore="UnusedResources">
         <item name="android:windowActionBarOverlay">true</item>
         <item name="windowActionBarOverlay">true</item>
     </style>
 
-    <style name="TextColor">
+    <style name="TextColor" tools:ignore="UnusedResources">
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="CollapsingToolbarLayout">
+    <style name="CollapsingToolbarLayout" tools:ignore="UnusedResources">
         <item name="contentScrim">@color/white</item>
     </style>
 
-    <style name="ShapeAppearanceOverlay.App.SelectedCornerRadius" parent="">
+    <style name="ShapeAppearanceOverlay.App.SelectedCornerRadius" parent="" tools:ignore="UnusedResources">
         <item name="cornerSizeBottomLeft">20dp</item>
         <item name="cornerSizeBottomRight">20dp</item>
     </style>
 
-    <style name="RatingBar" parent="Theme.AppCompat">
+    <style name="RatingBar" parent="Theme.AppCompat" tools:ignore="UnusedResources">
         <item name="colorControlNormal">@color/lightGrey</item>
         <item name="colorControlActivated">@android:color/holo_orange_light</item>
     </style>

@@ -7,7 +7,6 @@ import com.amary.amengsubang.core.data.datasource.remote.RemoteDataSource
 import com.amary.amengsubang.core.data.datasource.remote.network.NetworkResponse
 import com.amary.amengsubang.core.data.datasource.remote.response.PlaceResponse
 import com.amary.amengsubang.core.data.datasource.remote.response.mapToEntity
-import com.amary.amengsubang.core.utils.AppExecutors
 import com.amary.amengsubang.core.utils.NetworkBoundResource
 import com.amary.amengsubang.domain.model.FavoriteDomain
 import com.amary.amengsubang.domain.model.PlaceDomain
@@ -19,8 +18,7 @@ import kotlinx.coroutines.flow.*
 
 class PlaceRepository(
     private val remoteDataSource: RemoteDataSource,
-    private val localDataSource: LocalDataSource,
-    private val appExecutors: AppExecutors
+    private val localDataSource: LocalDataSource
 ) : IPlaceRepository {
 
     override fun getRemoteAllPlace(): Flow<Resource<List<PlaceDomain>>> =

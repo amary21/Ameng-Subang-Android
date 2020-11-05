@@ -33,7 +33,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                app:imageUrl="@{place.image}"/>
+                app:imageUrl="@{place.image}"
+                android:contentDescription="@string/place" />
 
             <View
                 android:layout_width="match_parent"

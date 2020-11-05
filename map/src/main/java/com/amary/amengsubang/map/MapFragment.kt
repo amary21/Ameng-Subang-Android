@@ -9,10 +9,6 @@ import android.view.ViewGroup
 
 class MapFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = MapFragment()
-    }
-
     private lateinit var viewModel: MapViewModel
 
     override fun onCreateView(

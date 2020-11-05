@@ -1,10 +1,10 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Ameng Subang</string>
-    <string name="title_home">Home</string>
-    <string name="title_favorite">Favorite</string>
-    <string name="title_map">Map</string>
-    <string name="title_info">Info</string>
+    <string name="title_home" tools:ignore="UnusedResources">Home</string>
+    <string name="title_favorite" tools:ignore="UnusedResources">Favorite</string>
+    <string name="title_map" tools:ignore="UnusedResources">Map</string>
+    <string name="title_info" tools:ignore="UnusedResources">Info</string>
     <string name="firebase_app">fireStoreApp</string>
-    <string name="title_detailplace">DetailPlace</string>
-    <string name="title_activity_detail">ScrollingActivity</string>
+    <string name="title_detailplace" tools:ignore="UnusedResources">DetailPlace</string>
+    <string name="title_activity_detail" tools:ignore="UnusedResources">ScrollingActivity</string>
 </resources>

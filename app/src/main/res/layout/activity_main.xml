@@ -16,7 +16,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/app_navigation" />
+        app:navGraph="@navigation/app_navigation"
+        tools:ignore="FragmentTagUsage" />
 
     <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
         android:id="@+id/nav_view"
