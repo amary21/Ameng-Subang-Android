@@ -11,10 +11,13 @@ import com.amary.amengsubang.detailplace.di.detailModule
 import com.amary.amengsubang.presentation.model.Favorite
 import com.amary.amengsubang.presentation.model.Place
 import com.amary.amengsubang.presentation.utils.Constant.PLACE_TO_DETAIL
+import com.amary.amengsubang.presentation.utils.loadVideo
+import com.google.android.youtube.player.YouTubePlayerSupportFragmentX
 import kotlinx.android.synthetic.main.activity_detail.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
+
 
 class DetailActivity : AppCompatActivity() {
 
@@ -42,6 +45,8 @@ class DetailActivity : AppCompatActivity() {
             supportActionBar?.title = getString(R.string.title)
 
             it.place = place
+            (supportFragmentManager.findFragmentById(R.id.yt_review) as YouTubePlayerSupportFragmentX?)
+                ?.loadVideo("GpLGU8k13Jc")
         }
     }
 
@@ -67,7 +72,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun getFavoriteState() {
-        place?.id?.let {id ->
+        place?.id?.let { id ->
             detailViewMode.isFavorite(id).observe(this, {
                 isFavorite = it == 1
             })

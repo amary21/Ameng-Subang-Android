@@ -249,16 +249,18 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_review"
                 android:layout_width="0dp"
-                android:layout_height="165dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 app:cardCornerRadius="15dp"
                 app:layout_constraintEnd_toEndOf="@+id/review"
                 app:layout_constraintStart_toStartOf="@+id/review"
                 app:layout_constraintTop_toBottomOf="@+id/review">
 
-                <WebView
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/yt_review"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="wrap_content"
+                    android:name="com.google.android.youtube.player.YouTubePlayerSupportFragmentX"/>
 
             </androidx.cardview.widget.CardView>
 

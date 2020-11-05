@@ -1,3 +1,4 @@
+include ':YouTubeAndroidPlayerApi'
 include ':detailplace'
 include ':presentation'
 include ':domain'
