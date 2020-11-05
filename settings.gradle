@@ -1,0 +1,10 @@
+include ':detailplace'
+include ':presentation'
+include ':domain'
+include ':core'
+include ':info'
+include ':map'
+include ':favorite'
+include ':home'
+include ':app'
+rootProject.name = "Ameng Subang"

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MainActivity">
+
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/app_navigation" />
+
+    <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:padding="8dp"
+        app:bnc_mode="inside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/BottomNavigation">
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/btHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_title="Home"
+            app:bt_icon="@drawable/ic_home"
+            style="@style/BottomItemNavigation"/>
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/btFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_title="favorite"
+            app:bt_icon="@drawable/ic_favorite"
+            style="@style/BottomItemNavigation"/>
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/btMaps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_title="Map"
+            app:bt_icon="@drawable/ic_map"
+            style="@style/BottomItemNavigation"/>
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/btInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_title="Info"
+            app:bt_icon="@drawable/ic_info"
+            style="@style/BottomItemNavigation"/>
+
+
+    </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
