@@ -8,8 +8,8 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
 
     private var result: Flow<Resource<ResultType>> = flow {
         emit(Resource.Loading())
-        val dbSource = loadFromDB().first()
-        if (shouldFetch(dbSource)) {
+        val dbSource = loadFromDB()
+        if (shouldFetch(dbSource).first()) {
             emit(Resource.Loading())
             when (val networkResponse = createCall().first()) {
                 is NetworkResponse.Success -> {
@@ -33,7 +33,7 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
 
     protected abstract fun loadFromDB(): Flow<ResultType>
 
-    protected abstract fun shouldFetch(data: ResultType?): Boolean
+    protected abstract fun shouldFetch(data: Flow<ResultType>?): Flow<Boolean>
 
     protected abstract suspend fun createCall(): Flow<NetworkResponse<RequestType>>
 

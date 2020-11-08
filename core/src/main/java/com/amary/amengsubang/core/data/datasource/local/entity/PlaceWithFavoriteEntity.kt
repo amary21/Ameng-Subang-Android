@@ -4,7 +4,6 @@ import androidx.room.Embedded
 import androidx.room.Relation
 import com.amary.amengsubang.domain.model.PlaceFavoriteDomain
 
-
 data class PlaceWithFavoriteEntity(
         @Embedded
         val placeEntity: PlaceEntity,

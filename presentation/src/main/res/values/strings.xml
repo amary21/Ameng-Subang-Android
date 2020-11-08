@@ -2,20 +2,21 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="food" tools:ignore="UnusedResources">Food</string>
     <string name="drink" tools:ignore="UnusedResources">Drink</string>
-    <string name="sleep" tools:ignore="UnusedResources">Sleep</string>
+    <string name="sleep" tools:ignore="UnusedResources">Lodging</string>
     <string name="toilet" tools:ignore="UnusedResources">Toilet</string>
     <string name="detail" tools:ignore="UnusedResources">Detail</string>
     <string name="vlog_and_review" tools:ignore="UnusedResources">Vlog and Review</string>
     <string name="ticket_and_location" tools:ignore="UnusedResources">Ticket and Location</string>
-    <string name="monday_friday" tools:ignore="UnusedResources">Monday - Friday</string>
+    <string name="monday_friday" tools:ignore="UnusedResources">Weekday</string>
     <string name="time1" tools:ignore="UnusedResources">08.00 – 21.30</string>
-    <string name="price1" tools:ignore="UnusedResources">Rp. 60.000</string>
+    <string name="price1" tools:ignore="UnusedResources">Rp. 40.000 – Rp. 60.000</string>
     <string name="weekend" tools:ignore="UnusedResources">Weekend</string>
     <string name="time2" tools:ignore="UnusedResources">08.00 – 24.00</string>
-    <string name="price2" tools:ignore="UnusedResources">Rp. 70.000</string>
+    <string name="price2" tools:ignore="UnusedResources">Rp. 70.000 – Rp. 100.000</string>
     <string name="info" tools:ignore="UnusedResources">Info</string>
     <string name="place">Place</string>
     <string name="map" tools:ignore="UnusedResources">Map</string>
     <string name="favoriteFalse" tools:ignore="UnusedResources">FavoriteFalse</string>
     <string name="no_data">No Data</string>
+    <string name="mosque" tools:ignore="UnusedResources">Mosque</string>
 </resources>

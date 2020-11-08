@@ -9,6 +9,8 @@ import kotlinx.coroutines.launch
 
 class DetailViewModel(private val placeUseCase: PlaceUseCase): BaseViewModel() {
 
+    fun getDetailPlace(placeId: String) = placeUseCase.getDetailPlace(placeId).asLiveData()
+
     fun isFavorite(placeId: String) = placeUseCase.isFavorite(placeId).asLiveData()
 
     fun insertFavoritePlace(favorite: Favorite){

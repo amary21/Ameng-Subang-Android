@@ -41,7 +41,7 @@ class RemoteDataSource : BaseNetwork() {
                 val query = detailPlace(id).get().await()
                 val result = query.toObjects(DetailPlaceResponse::class.java)
                 if (result.isNotEmpty()){
-                    emit(NetworkResponse.Success(result[0]))
+                    emit(NetworkResponse.Success(result.first()))
                 } else {
                     emit(NetworkResponse.Empty)
                 }

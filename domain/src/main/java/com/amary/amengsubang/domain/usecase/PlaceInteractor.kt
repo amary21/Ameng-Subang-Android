@@ -12,6 +12,8 @@ class PlaceInteractor(private val placeRepository: IPlaceRepository): PlaceUseCa
 
     override fun isFavorite(placeId: String) = placeRepository.isFavorite(placeId)
 
+    override fun getDetailPlace(placeId: String) = placeRepository.getDetailPlace(placeId)
+
     override suspend fun insertFavoritePlace(favoriteDomain: FavoriteDomain) = placeRepository.insertFavoritePlace(favoriteDomain)
 
     override suspend fun deleteFavorite(placeId: String) = placeRepository.deleteFavorite(placeId)

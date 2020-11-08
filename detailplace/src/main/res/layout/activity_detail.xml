@@ -4,9 +4,15 @@
     xmlns:tool="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View"/>
+
         <variable
-            name="place"
-            type="com.amary.amengsubang.presentation.model.Place" />
+            name="placeDetail"
+            type="com.amary.amengsubang.presentation.model.PlaceDetail" />
+
+        <variable
+            name="facilities"
+            type="java.util.List&lt;Boolean&gt;" />
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -17,16 +23,43 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/shapeableImageView"
-                android:layout_width="match_parent"
-                android:layout_height="334dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.SelectedCornerRadius"
-                app:imageUrl="@{place.image}"/>
+<!--            <com.github.captain_miao.optroundcardview.OptRoundCardView-->
+<!--                android:id="@+id/cv_images"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="334dp"-->
+<!--                android:layout_marginBottom="4dp"-->
+<!--                app:optRoundCardCornerRadius="20dp"-->
+<!--                style="@style/OptRoundCardView.Light"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent">-->
+
+                <com.synnapps.carouselview.CarouselView
+                    android:id="@+id/cl_images"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom"
+                    app:fillColor="@color/primaryColor"
+                    app:pageColor="#00000000"
+                    app:radius="6dp"
+                    app:slideInterval="3000"
+                    app:strokeColor="@color/secondaryColor"
+                    app:strokeWidth="1dp"
+                    app:carouselImage="@{placeDetail.detail.images}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:alpha="0.6"
+                    android:background="@drawable/collapsing_toolbar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+<!--            </com.github.captain_miao.optroundcardview.OptRoundCardView>-->
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar_detail"
@@ -44,21 +77,21 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:text="@{place.name}"
+                android:text="@{placeDetail.place.name}"
                 tool:text="Ciater Spa Resort"
                 android:textStyle="bold"
                 android:textSize="20sp"
                 style="@style/TextColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />
+                app:layout_constraintTop_toBottomOf="@+id/cl_images" />
 
             <TextView
                 android:id="@+id/tv_districts"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 tool:text="ciater"
-                android:text="@{place.district}"
+                android:text="@{placeDetail.place.district}"
                 style="@style/TextColor"
                 android:textSize="16sp"
                 android:textStyle="normal"
@@ -74,7 +107,7 @@
                 android:isIndicator="true"
                 android:numStars="5"
                 android:stepSize="0.1"
-                android:rating="3"
+                android:rating="@{placeDetail.detail.rate}"
                 android:theme="@style/RatingBar"
                 app:layout_constraintStart_toStartOf="@+id/tv_name"
                 app:layout_constraintTop_toBottomOf="@+id/tv_districts" />
@@ -96,6 +129,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     android:layout_weight="1"
+                    app:viewFacility="@{facilities[0]}"
                     app:cardCornerRadius="10dp">
 
                     <LinearLayout
@@ -108,6 +142,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_food"
+                            android:layout_marginTop="4dp"
                             android:contentDescription="@string/food" />
 
                         <TextView
@@ -126,6 +161,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     android:layout_weight="1"
+                    app:viewFacility="@{facilities[1]}"
                     app:cardCornerRadius="10dp">
 
                     <LinearLayout
@@ -138,6 +174,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_drink"
+                            android:layout_marginTop="4dp"
                             android:contentDescription="@string/drink" />
 
                         <TextView
@@ -156,6 +193,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     android:layout_weight="1"
+                    app:viewFacility="@{facilities[2]}"
                     app:cardCornerRadius="10dp">
 
                     <LinearLayout
@@ -168,6 +206,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_sleep"
+                            android:layout_marginTop="4dp"
                             android:contentDescription="@string/sleep" />
 
                         <TextView
@@ -186,6 +225,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     android:layout_weight="1"
+                    app:viewFacility="@{facilities[3]}"
                     app:cardCornerRadius="10dp">
 
                     <LinearLayout
@@ -197,8 +237,9 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/ic_toilet"
-                            android:contentDescription="@string/toilet" />
+                            android:src="@drawable/ic_mosque"
+                            android:layout_marginTop="4dp"
+                            android:contentDescription="@string/mosque" />
 
                         <TextView
                             style="@style/TextColor"
@@ -206,7 +247,139 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="4dp"
                             android:gravity="center"
-                            android:text="@string/toilet" />
+                            android:text="@string/mosque" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    app:unViewFacility="@{facilities[0]}"
+                    app:cardCornerRadius="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        tool:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_food"
+                            android:layout_marginTop="4dp"
+                            android:contentDescription="@string/food" />
+
+                        <TextView
+                            style="@style/TextColor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:gravity="center"
+                            android:text="@string/food" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    app:unViewFacility="@{facilities[1]}"
+                    app:cardCornerRadius="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        tool:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_drink"
+                            android:layout_marginTop="4dp"
+                            android:contentDescription="@string/drink" />
+
+                        <TextView
+                            style="@style/TextColor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:gravity="center"
+                            android:text="@string/drink" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    app:unViewFacility="@{facilities[2]}"
+                    app:cardCornerRadius="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        tool:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_sleep"
+                            android:layout_marginTop="4dp"
+                            android:contentDescription="@string/sleep" />
+
+                        <TextView
+                            style="@style/TextColor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:gravity="center"
+                            android:text="@string/sleep" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    app:unViewFacility="@{facilities[3]}"
+                    app:cardCornerRadius="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        tool:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_mosque"
+                            android:layout_marginTop="4dp"
+                            android:contentDescription="@string/mosque" />
+
+                        <TextView
+                            style="@style/TextColor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:gravity="center"
+                            android:text="@string/mosque" />
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -229,7 +402,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="@string/large_text"
+                android:text="@{placeDetail.detail.description}"
                 app:layout_constraintEnd_toEndOf="@+id/detail"
                 app:layout_constraintStart_toStartOf="@+id/detail"
                 app:layout_constraintTop_toBottomOf="@+id/detail" />
@@ -316,7 +489,7 @@
                             android:layout_marginBottom="4dp"
                             android:gravity="center"
                             android:textSize="12sp"
-                            android:text="@string/time1" />
+                            android:text='@{placeDetail.detail.visitingWeekday[0] + " - " + placeDetail.detail.visitingWeekday[1] + " WIB"}' />
 
 
                         <TextView
@@ -326,8 +499,9 @@
                             android:layout_margin="4dp"
                             style="@style/TextColor"
                             android:gravity="center"
-                            android:textSize="18sp"
-                            android:text="@string/price1" />
+                            android:textStyle="bold"
+                            android:singleLine="true"
+                            android:text='@{placeDetail.detail.ticketWeekday[0] + " - " + placeDetail.detail.ticketWeekday[1]}' />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -360,7 +534,7 @@
                             android:layout_marginBottom="4dp"
                             android:gravity="center"
                             android:textSize="12sp"
-                            android:text="@string/time2" />
+                            android:text='@{placeDetail.detail.visitingWeekend[0] + " - " + placeDetail.detail.visitingWeekend[1] + " WIB"}' />
 
 
                         <TextView
@@ -370,8 +544,9 @@
                             android:layout_margin="4dp"
                             style="@style/TextColor"
                             android:gravity="center"
-                            android:textSize="18sp"
-                            android:text="@string/price2" />
+                            android:singleLine="true"
+                            android:textStyle="bold"
+                            android:text='@{placeDetail.detail.ticketWeekend[0] + " - " + placeDetail.detail.ticketWeekend[1]}' />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>

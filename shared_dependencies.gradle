@@ -46,4 +46,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore-ktx:22.0.0'
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.1'
+
+
+    implementation 'com.synnapps:carouselview:0.1.4'
+
+    implementation 'com.github.captain-miao:optroundcardview:1.0.0'
 }

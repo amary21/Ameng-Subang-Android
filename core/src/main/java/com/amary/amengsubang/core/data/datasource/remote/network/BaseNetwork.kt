@@ -10,5 +10,5 @@ open class BaseNetwork : KoinComponent{
 
     fun listPlace() = fireStore.collection("travel")
 
-    fun detailPlace(id: String) = fireStore.collection("travel").document(id).collection("detail")
+    fun detailPlace(id: String) = listPlace().document(id).collection("detail")
 }
