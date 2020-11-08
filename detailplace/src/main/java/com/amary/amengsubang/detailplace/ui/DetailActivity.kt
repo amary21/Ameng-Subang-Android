@@ -8,8 +8,10 @@ import androidx.databinding.DataBindingUtil
 import com.amary.amengsubang.detailplace.R
 import com.amary.amengsubang.detailplace.databinding.ActivityDetailBinding
 import com.amary.amengsubang.detailplace.di.detailModule
+import com.amary.amengsubang.domain.utils.Resource
 import com.amary.amengsubang.presentation.model.Favorite
 import com.amary.amengsubang.presentation.model.Place
+import com.amary.amengsubang.presentation.model.mapToPresentation
 import com.amary.amengsubang.presentation.utils.Constant.PLACE_TO_DETAIL
 import com.amary.amengsubang.presentation.utils.loadVideo
 import com.google.android.youtube.player.YouTubePlayerSupportFragmentX
@@ -33,20 +35,45 @@ class DetailActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail)
         place = intent.getSerializableExtra(PLACE_TO_DETAIL) as Place
 
-        initView(binding)
+        initView()
         getFavoriteState()
     }
 
-    private fun initView(binding: ActivityDetailBinding?) {
+    private fun initView() {
         binding?.let {
             setSupportActionBar(toolbar_detail)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
             supportActionBar?.setDisplayShowHomeEnabled(true)
             supportActionBar?.title = getString(R.string.title)
+            val ytReview = (supportFragmentManager.findFragmentById(R.id.yt_review) as YouTubePlayerSupportFragmentX?)
 
-            it.place = place
-            (supportFragmentManager.findFragmentById(R.id.yt_review) as YouTubePlayerSupportFragmentX?)
-                ?.loadVideo("GpLGU8k13Jc")
+            getDetailData(ytReview)
+        }
+    }
+
+    private fun getDetailData(ytReview: YouTubePlayerSupportFragmentX?) {
+        place?.id?.let {id ->
+            detailViewMode.getDetailPlace(id).observe(this, {
+                if (it != null) {
+                    when (it) {
+                        is Resource.Loading -> {
+                        }
+                        is Resource.Success -> {
+                            val result = it.data.mapToPresentation()
+                            val food = result.detail.facility.find { facility -> "Food" == facility } != null
+                            val drink = result.detail.facility.find { facility -> "Drink" == facility } != null
+                            val lodging = result.detail.facility.find { facility -> "Lodging" == facility } != null
+                            val mosque = result.detail.facility.find { facility -> "Mosque" == facility } != null
+
+                            binding?.placeDetail = result
+                            binding?.facilities = listOf(food, drink, lodging, mosque)
+                            ytReview?.loadVideo(result.detail.video)
+                        }
+                        is Resource.Error -> {
+                        }
+                    }
+                }
+            })
         }
     }
 
