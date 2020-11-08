@@ -28,7 +28,7 @@ object BindingInstance : KoinComponent {
     fun CarouselView.bindImage(imageUrl: List<String>?){
         imageUrl?.let {
             this.setImageListener { position, imageView ->
-//                imageView.setBackgroundResource(R.drawable.bc_carousel)
+                imageView.setBackgroundResource(R.drawable.bc_carousel)
                 imageView.bindImage(it[position])
             }
 

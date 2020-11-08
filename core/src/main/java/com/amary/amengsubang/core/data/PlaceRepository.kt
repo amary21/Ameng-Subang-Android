@@ -86,12 +86,7 @@ class PlaceRepository(
 
                 override fun shouldFetch(data: Flow<PlaceDetailDomain>?) =
                         flow {
-                            val result = data?.first()
-                            if (result != null){
-                                emit(false)
-                            } else {
-                                emit(true)
-                            }
+                            emit(true)
                         }.flowOn(Dispatchers.IO)
 
                 override suspend fun createCall(): Flow<NetworkResponse<DetailPlaceResponse>> {
