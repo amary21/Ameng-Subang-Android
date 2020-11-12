@@ -5,14 +5,14 @@ plugins {
     id 'kotlin-kapt'
 }
 
-apply from: '../shared_dependencies.gradle'
+apply from: '../../shared_dependencies.gradle'
 
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.amary.amengsubang.info"
+        applicationId "com.amary.amengsubang.map"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1

@@ -13,13 +13,13 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/YouTubeAndroidPlayerApi" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/app/detailplace" />
+            <option value="$PROJECT_DIR$/app/favorite" />
+            <option value="$PROJECT_DIR$/app/home" />
+            <option value="$PROJECT_DIR$/app/info" />
+            <option value="$PROJECT_DIR$/app/map" />
             <option value="$PROJECT_DIR$/core" />
-            <option value="$PROJECT_DIR$/detailplace" />
             <option value="$PROJECT_DIR$/domain" />
-            <option value="$PROJECT_DIR$/favorite" />
-            <option value="$PROJECT_DIR$/home" />
-            <option value="$PROJECT_DIR$/info" />
-            <option value="$PROJECT_DIR$/map" />
             <option value="$PROJECT_DIR$/presentation" />
           </set>
         </option>

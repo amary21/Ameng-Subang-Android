@@ -45,7 +45,7 @@ class DetailActivity : AppCompatActivity() {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
             supportActionBar?.setDisplayShowHomeEnabled(true)
             supportActionBar?.title = getString(R.string.title)
-            val ytReview = (supportFragmentManager.findFragmentById(R.id.yt_review) as YouTubePlayerSupportFragmentX?)
+            val ytReview = (supportFragmentManager.findFragmentById(R.id.yt_review) as YouTubePlayerSupportFragmentX)
 
             getDetailData(ytReview)
         }
