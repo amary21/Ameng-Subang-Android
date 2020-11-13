@@ -1,3 +1,5 @@
+include ':startup'
+include ':main'
 include ':YouTubeAndroidPlayerApi'
 include ':app:detailplace'
 include ':presentation'

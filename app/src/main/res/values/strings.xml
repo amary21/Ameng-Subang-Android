@@ -7,4 +7,6 @@
     <string name="firebase_app">fireStoreApp</string>
     <string name="title_detailplace" tools:ignore="UnusedResources">DetailPlace</string>
     <string name="title_activity_detail" tools:ignore="UnusedResources">ScrollingActivity</string>
+    <string name="title_main">Main</string>
+    <string name="title_startup">Startup</string>
 </resources>

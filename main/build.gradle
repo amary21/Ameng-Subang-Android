@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.dynamic-feature'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
@@ -12,16 +12,13 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.amary.amengsubang"
+        applicationId "com.amary.amengsubang.main"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField 'String', 'PROJECT_ID', project_id
-        buildConfigField 'String', 'APLICATION_ID', application_id
-        buildConfigField 'String', 'API_KEY', api_key
     }
 
     buildTypes {
@@ -38,14 +35,17 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures {
-        dataBinding true
+        dataBinding = true
     }
-
-    dynamicFeatures = [':app:home', ':app:favorite', ':app:map', ':app:info', ':app:detailplace', ':main', ':startup']
 }
 
 dependencies {
-    implementation project(":presentation")
+    implementation project(":app")
+    implementation project(path: ':app:info')
+    implementation project(path: ':app:home')
+    implementation project(path: ':app:favorite')
+    implementation project(path: ':app:map')
     implementation project(":domain")
-    implementation project(":core")
+    implementation project(":presentation")
+
 }
