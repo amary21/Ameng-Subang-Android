@@ -22,6 +22,7 @@ android {
         buildConfigField 'String', 'PROJECT_ID', project_id
         buildConfigField 'String', 'APLICATION_ID', application_id
         buildConfigField 'String', 'API_KEY', api_key
+        buildConfigField 'String', 'MAPBOX_ACCESS_TOKEN', mapbox_access_token
     }
 
     buildTypes {
@@ -41,11 +42,21 @@ android {
         dataBinding true
     }
 
-    dynamicFeatures = [':app:home', ':app:favorite', ':app:map', ':app:info', ':app:detailplace', ':main', ':startup']
+    dynamicFeatures = [
+            ':app:home',
+            ':app:favorite',
+            ':app:map',
+            ':app:info',
+            ':app:detailplace',
+            ':app:main',
+            ':app:startup'
+    ]
 }
 
 dependencies {
     implementation project(":presentation")
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
     implementation project(":domain")
     implementation project(":core")
 }

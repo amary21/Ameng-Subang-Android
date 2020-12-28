@@ -2,6 +2,7 @@ package com.amary.amengsubang.presentation.utils
 
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
@@ -47,4 +48,35 @@ object BindingInstance : KoinComponent {
     fun CardView.bindUnVisibility(visibility: Boolean){
         this.visibility = if (visibility) View.GONE else View.INVISIBLE
     }
+
+    @JvmStatic
+    @BindingAdapter("ticketPrice", "format")
+    fun TextView.bindTicketPrice(ticket: List<String>?, format: String){
+        ticket?.let {
+            when {
+                it.size > 1 -> {
+                    this.text = String.format(format, it[0], it[1])
+                }
+                it.size == 1 -> {
+                    this.text = it[0]
+                }
+                else -> {
+                    this.text = ""
+                }
+            }
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("visitingHours", "format")
+    fun TextView.bindVisitingHours(visiting: List<String>?, format: String){
+        visiting?.let {
+            if (it.size > 1) {
+                this.text = String.format(format, it[0], it[1])
+            } else {
+                this.text = it[0]
+            }
+        }
+    }
+
 }

@@ -7,6 +7,6 @@ data class PlaceDomain(
         val name: String,
         val district: String,
         val image: String,
-        val latitude: Int,
-        val longitude: Int
+        val latitude: Double,
+        val longitude: Double
 ) : Serializable

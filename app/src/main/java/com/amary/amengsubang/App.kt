@@ -11,6 +11,7 @@ import com.facebook.stetho.Stetho
 import com.google.firebase.FirebaseOptions
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.ktx.initialize
+import com.mapbox.mapboxsdk.Mapbox
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -27,6 +28,8 @@ class App : Application() {
             .setApiKey(API_KEY)
             .build()
         Firebase.initialize(this, options, getString(R.string.firebase_app))
+
+        Mapbox.getInstance(applicationContext, MAPBOX_ACCESS_TOKEN)
 
         Stetho.initializeWithDefaults(this)
         startKoin {

@@ -8,8 +8,8 @@ data class Place (
     val name: String,
     val district: String,
     val image: String,
-    val latitude: Number,
-    val longitude: Number
+    val latitude: Double,
+    val longitude: Double
 ) : Serializable
 
 fun PlaceDomain.mapToPresentation() = Place(id, name, district, image, latitude, longitude)

@@ -1,3 +1,5 @@
 <resources>
     <string name="title"/>
+    <string name="ticket_price">%1$s - %2$s</string>
+    <string name="visiting_hours">%1$s - %2$s</string>
 </resources>

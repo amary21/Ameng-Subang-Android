@@ -19,4 +19,7 @@
     <string name="favoriteFalse" tools:ignore="UnusedResources">FavoriteFalse</string>
     <string name="no_data">No Data</string>
     <string name="mosque" tools:ignore="UnusedResources">Mosque</string>
+    <string name="ticket_price">%1$s - %2$s</string>
+    <string name="visiting_hours">%1$s - %2$s</string>
+    <string name="go_to_map">Go To Map</string>
 </resources>

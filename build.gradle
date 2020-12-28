@@ -44,6 +44,9 @@ buildscript {
     ext.sqlcipher_version = "4.4.0"
     ext.sqlite_version = "2.1.0"
 
+    ext.mapbox_version = "9.2.0"
+    ext.mapbox_annotation_version = "0.8.0"
+
     repositories {
         google()
         jcenter()

@@ -8,8 +8,8 @@ data class PlaceResponse (
         var name: String? = null,
         var districts: String? = null,
         var image: String? = null,
-        var latitude: Int? = null,
-        var longitude: Int? = null
+        var latitude: Double? = null,
+        var longitude: Double? = null
 ) : Serializable
 
 fun PlaceResponse.mapToEntity(): PlaceEntity{
@@ -17,8 +17,8 @@ fun PlaceResponse.mapToEntity(): PlaceEntity{
         val nameEntity = name ?: ""
         val districtEntity = districts ?: ""
         val imageEntity = image ?: ""
-        val latitudeEntity = latitude ?: 0
-        val longitudeEntity = longitude ?: 0
+        val latitudeEntity = latitude ?: 0.0
+        val longitudeEntity = longitude ?: 0.0
 
         return PlaceEntity(idEntity, nameEntity, districtEntity, imageEntity, latitudeEntity, longitudeEntity)
 }

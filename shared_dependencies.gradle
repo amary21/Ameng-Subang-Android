@@ -51,4 +51,7 @@ dependencies {
     implementation 'com.synnapps:carouselview:0.1.4'
 
     implementation 'com.github.captain-miao:optroundcardview:1.0.0'
+
+    implementation "com.mapbox.mapboxsdk:mapbox-android-sdk:$mapbox_version"
+    implementation "com.mapbox.mapboxsdk:mapbox-android-plugin-annotation-v9:$mapbox_annotation_version"
 }

@@ -21,10 +21,10 @@ data class PlaceEntity(
         val image: String,
 
         @ColumnInfo(name = "latitude")
-        val latitudeEntity: Int,
+        val latitudeEntity: Double,
 
         @ColumnInfo(name = "longitude")
-        val longitudeEntity: Int
+        val longitudeEntity: Double
 )
 
 fun PlaceEntity.mapToDomain(): PlaceDomain = PlaceDomain(id, name, district, image, latitudeEntity, longitudeEntity)
