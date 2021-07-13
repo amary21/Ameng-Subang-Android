@@ -1,20 +1,23 @@
 package com.amary.amengsubang.map.ui
 
-import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import com.amary.amengsubang.domain.utils.Resource
 import com.amary.amengsubang.map.R
 import com.amary.amengsubang.map.di.mapModule
+import com.amary.amengsubang.map.ui.MapBottomFragment.Companion.MAP_BOTTOM_INFO
 import com.amary.amengsubang.presentation.model.Place
 import com.amary.amengsubang.presentation.model.mapToPresentation
-import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.amary.amengsubang.presentation.utils.Constant
+import com.amary.amengsubang.presentation.utils.ListCallback
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.gson.Gson
-import com.mapbox.mapboxsdk.camera.CameraUpdate
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
 import com.mapbox.mapboxsdk.geometry.LatLng
 import com.mapbox.mapboxsdk.geometry.LatLngBounds
@@ -26,13 +29,13 @@ import com.mapbox.mapboxsdk.utils.BitmapUtils
 import kotlinx.android.synthetic.main.map_fragment.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
-import java.util.ArrayList
+import java.util.*
 
-class MapFragment : Fragment() {
+class MapFragment : Fragment(), ListCallback {
 
     private val viewModel: MapViewModel by viewModel()
     private lateinit var mapboxMap: MapboxMap
-    private lateinit var bottomSheetDialog: BottomSheetDialog
+    private var bottomSheetDialog: BottomSheetDialogFragment? = null
 
     companion object {
         private const val ICON_ID = "ICON_IDS"
@@ -44,15 +47,6 @@ class MapFragment : Fragment() {
     ): View? {
         loadKoinModules(mapModule)
         return inflater.inflate(R.layout.map_fragment, container, false)
-    }
-
-    @SuppressLint("InflateParams")
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        bottomSheetDialog = context?.let { BottomSheetDialog(it) }!!
-
-        val view = LayoutInflater.from(context).inflate(R.layout.bottom_item, null)
-        bottomSheetDialog.setContentView(view)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -115,7 +109,14 @@ class MapFragment : Fragment() {
             mapboxMap.easeCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds, 50), 5000 )
 
             symbolManager.addClickListener {
-                bottomSheetDialog.show()
+                bottomSheetDialog = MapBottomFragment(this)
+
+                val data = Gson().fromJson(it.data, Place::class.java)
+                val bundle = Bundle()
+                bundle.putSerializable(MAP_BOTTOM_INFO, data)
+
+                bottomSheetDialog?.arguments = bundle
+                bottomSheetDialog?.show((context as AppCompatActivity).supportFragmentManager, "mapInfo")
             }
 
         }
@@ -141,10 +142,17 @@ class MapFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         mapView.onDestroy()
+        bottomSheetDialog = null
     }
     override fun onLowMemory() {
         super.onLowMemory()
         mapView.onLowMemory()
+    }
+
+    override fun onClick(view: View, place: Place) {
+        val intent = Intent(context, Class.forName(Constant.ACTIVITY_DETAIL))
+        intent.putExtra(Constant.PLACE_TO_DETAIL, place)
+        startActivity(intent)
     }
 
 }

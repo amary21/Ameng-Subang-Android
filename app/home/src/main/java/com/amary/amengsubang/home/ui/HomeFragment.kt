@@ -2,7 +2,6 @@ package com.amary.amengsubang.home.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,7 +38,6 @@ class HomeFragment : Fragment(), ListCallback {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.e("onViewCreated: ", "HELLO RESUM")
         initViews()
         initSearchView()
     }
@@ -82,7 +80,6 @@ class HomeFragment : Fragment(), ListCallback {
     private fun getViewAllData() {
         homeViewModel.getRemotePlace.observe(viewLifecycleOwner, { place ->
 
-            Log.e("onViewCreated: ", "HELLO vie")
             if (place != null) {
                 when (place) {
                     is Resource.Loading -> {

@@ -1,6 +1,8 @@
 package com.amary.amengsubang.detailplace.ui
 
+import android.content.Intent
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -89,6 +91,13 @@ class DetailActivity : AppCompatActivity() {
 
                             binding?.placeDetail = result
                             binding?.facilities = listOf(food, drink, lodging, mosque)
+                            binding?.btnGoMap?.setOnClickListener {
+                                // Creates an Intent that will load a map of San Francisco
+                                val gmmIntentUri = Uri.parse("geo:${result.place.latitude},${result.place.longitude}?q=${result.place.name}")
+                                val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+                                mapIntent.setPackage("com.google.android.apps.maps")
+                                startActivity(mapIntent)
+                            }
                             ytReview?.loadVideo(result.detail.video)
 
                             getMapData(result.place)
@@ -100,6 +109,8 @@ class DetailActivity : AppCompatActivity() {
             })
         }
     }
+
+
 
     private fun getMapData(place: Place) {
         binding?.mapView?.getMapAsync { map ->

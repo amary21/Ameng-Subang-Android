@@ -575,6 +575,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/btn_goMap"
                 android:layout_width="170dp"
                 android:layout_height="45dp"
                 app:cardCornerRadius="35dp"
