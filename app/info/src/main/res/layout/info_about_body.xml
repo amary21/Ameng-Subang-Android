@@ -1,0 +1,80 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Ameng Subang is an information application for tourist attractions located in Subang regency, precisely in the province of West Java - Indonesia, this application aims to get to know Subang regency more broadly."
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+    <TextView
+        style="@style/TextColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/kritik_saran"
+        android:layout_margin="8dp"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edt_name"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        app:boxStrokeColor="@color/primaryDarkColor"
+        app:hintTextColor="@color/primaryDarkColor"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="Nama">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textShortMessage"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edt_kritik"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        app:boxStrokeColor="@color/primaryDarkColor"
+        app:hintTextColor="@color/primaryDarkColor"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="Masukkan">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:gravity="start|top" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/primaryDarkColor"
+        android:textColor="@color/white"
+        android:text="Kirim"/>
+
+</LinearLayout>

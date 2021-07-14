@@ -11,4 +11,6 @@ open class BaseNetwork : KoinComponent{
     fun listPlace() = fireStore.collection("travel")
 
     fun detailPlace(id: String) = listPlace().document(id).collection("detail")
+
+    fun addMessage(message: HashMap<String, String>) = fireStore.collection("message").add(message)
 }

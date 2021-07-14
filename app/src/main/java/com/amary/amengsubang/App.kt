@@ -7,6 +7,8 @@ import com.amary.amengsubang.core.di.networkModule
 import com.amary.amengsubang.core.di.repositoryModule
 import com.amary.amengsubang.di.useCaseModule
 import com.amary.amengsubang.presentation.di.glideModule
+import com.amary.amengsubang.presentation.di.motionToast
+import com.amary.amengsubang.presentation.di.preferenceModule
 import com.facebook.stetho.Stetho
 import com.google.firebase.FirebaseOptions
 import com.google.firebase.ktx.Firebase
@@ -41,7 +43,9 @@ class App : Application() {
                     networkModule,
                     repositoryModule,
                     useCaseModule,
-                    glideModule
+                    glideModule,
+                    preferenceModule,
+                    motionToast
                 )
             )
         }

@@ -5,6 +5,7 @@ import com.amary.amengsubang.core.data.datasource.remote.network.BaseNetwork
 import com.amary.amengsubang.core.data.datasource.remote.network.NetworkResponse
 import com.amary.amengsubang.core.data.datasource.remote.response.DetailPlaceResponse
 import com.amary.amengsubang.core.data.datasource.remote.response.PlaceResponse
+import com.google.firebase.firestore.DocumentReference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -48,6 +49,22 @@ class RemoteDataSource : BaseNetwork() {
             } catch (e: Exception){
                 emit(NetworkResponse.Error(e.message.toString()))
                 Log.e(TAG, e.message.toString() )
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun sendMessage(name: String, message: String) : Flow<NetworkResponse<DocumentReference>> {
+        return flow {
+            try {
+                val msg = hashMapOf(
+                    "name" to name,
+                    "message" to message
+                )
+
+                val result = addMessage(msg).await()
+                emit(NetworkResponse.Success(result))
+            } catch (e: Exception){
+                emit(NetworkResponse.Error(e.message.toString()))
             }
         }.flowOn(Dispatchers.IO)
     }

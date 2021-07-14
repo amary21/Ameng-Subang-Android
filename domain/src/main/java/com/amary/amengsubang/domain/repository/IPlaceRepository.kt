@@ -15,6 +15,8 @@ interface IPlaceRepository {
 
     fun getDetailPlace(placeId: String): Flow<Resource<PlaceDetailDomain>>
 
+    fun sendMessage(name: String, message: String): Flow<Resource<Unit>>
+
     suspend fun insertFavoritePlace(favoriteDomain: FavoriteDomain)
 
     suspend fun deleteFavorite(placeId: String)

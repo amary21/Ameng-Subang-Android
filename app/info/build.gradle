@@ -40,4 +40,6 @@ dependencies {
     implementation project(":app")
     implementation project(":domain")
     implementation project(":presentation")
+
+    implementation "com.github.skydoves:expandablelayout:1.0.7"
 }

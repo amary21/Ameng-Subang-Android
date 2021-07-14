@@ -18,6 +18,9 @@ import com.amary.amengsubang.presentation.model.Favorite
 import com.amary.amengsubang.presentation.model.Place
 import com.amary.amengsubang.presentation.model.mapToPresentation
 import com.amary.amengsubang.presentation.utils.Constant.PLACE_TO_DETAIL
+import com.amary.amengsubang.presentation.utils.ToastMotion
+import com.amary.amengsubang.presentation.utils.ToastMotion.Companion.SUCCESS_DELETE
+import com.amary.amengsubang.presentation.utils.ToastMotion.Companion.SUCCESS_INSERT
 import com.amary.amengsubang.presentation.utils.loadVideo
 import com.google.android.youtube.player.YouTubePlayerSupportFragmentX
 import com.google.gson.Gson
@@ -30,14 +33,17 @@ import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions
 import com.mapbox.mapboxsdk.utils.BitmapUtils
 import kotlinx.android.synthetic.main.activity_detail.*
+import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
+import org.koin.core.parameter.parametersOf
 
 
 class DetailActivity : AppCompatActivity() {
 
     private val detailViewMode: DetailViewModel by viewModel()
+    private val toastMotion: ToastMotion by inject{ parametersOf(this) }
     private var binding: ActivityDetailBinding? = null
     private lateinit var mapboxMap: MapboxMap
     private var isFavorite = false
@@ -172,10 +178,12 @@ class DetailActivity : AppCompatActivity() {
 
     private fun insertFavorite(place: Place) {
         detailViewMode.insertFavoritePlace(Favorite(place.id))
+        toastMotion.show(SUCCESS_INSERT)
     }
 
     private fun deleteFavorite(place: Place) {
         detailViewMode.deleteFavorite(place.id)
+        toastMotion.show(SUCCESS_DELETE)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -1,5 +1,6 @@
 package com.amary.amengsubang.core.data
 
+import android.util.Log
 import com.amary.amengsubang.core.data.datasource.local.LocalDataSource
 import com.amary.amengsubang.core.data.datasource.local.entity.mapToDomain
 import com.amary.amengsubang.core.data.datasource.local.entity.mapToEntity
@@ -97,6 +98,19 @@ class PlaceRepository(
                     localDataSource.insertPlaceDetail(data.mapToEntity())
                 }
             }.asFlow()
+
+    override fun sendMessage(name: String, message: String): Flow<Resource<Unit>> {
+        return flow {
+            emit(Resource.Loading())
+            remoteDataSource.sendMessage(name, message).collect {
+                when(it){
+                    is NetworkResponse.Success -> emit(Resource.Success(Unit))
+                    is NetworkResponse.Empty -> emit(Resource.Success(Unit))
+                    is NetworkResponse.Error -> emit(Resource.Error(it.errorMessage))
+                }
+            }
+        }.flowOn(Dispatchers.IO)
+    }
 
     override suspend fun insertFavoritePlace(favoriteDomain: FavoriteDomain) {
         return localDataSource.insertFavoritePlace(favoriteDomain.mapToEntity())

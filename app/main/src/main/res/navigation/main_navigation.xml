@@ -28,7 +28,7 @@
 
     <fragment
         android:id="@+id/nav_info"
-        android:name="com.amary.amengsubang.info.InfoFragment"
+        android:name="com.amary.amengsubang.info.ui.InfoFragment"
         app:moduleName="Ameng_Subang.info"
         android:label="info_fragment"
         tools:layout="@layout/info_fragment" />
